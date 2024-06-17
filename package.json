@@ -1,0 +1,38 @@
+{
+  "name": "walletconnect-solana-js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:forc-rel": "pnpm fuels-forc build --release --path ./predicate",
+    "build:forc-deb": "pnpm fuels-forc build --path ./predicate",
+    "build:script": "pnpm fuels-forc build --path ./verification-script",
+    "build:forc": "pnpm build:forc-rel && pnpm build:forc-deb && pnpm build:script",
+    "build:resources-pred": "tsx ./scripts/generatePredicateResources.ts && tsx ./scripts/generatePredicateDebugResources.ts",
+    "build:resources-script": "tsx ./scripts/generateScriptDebugResources.ts",
+    "build:resources": "pnpm build:forc && pnpm build:resources-pred && pnpm build:resources-script",
+    "chain:start": "make -C ./docker/chain up",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@fuel-ts/account": "0.88.1",
+    "@fuel-ts/forc": "0.88.1",
+    "@fuel-ts/fuel-core": "0.88.1",
+    "@types/bs58": "^4.0.4",
+    "@types/memoizee": "^0.4.11",
+    "fuels": "0.88.1",
+    "tsx": "^4.10.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@ethersproject/bytes": "^5.7.0",
+    "@solana/web3.js": "^1.93.0",
+    "@web3modal/solana": "^4.2.3",
+    "bs58": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "memoizee": "^0.4.15"
+  }
+}
