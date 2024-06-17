@@ -188,7 +188,7 @@ export class SolanaConnector {
       return result;
     } catch (error) {
       console.log(error);
-      return {};
+      return { id: '' };
     }
 
     // return response;
